@@ -1,5 +1,5 @@
 -- 新增数据
-CREATE DATABASE IF NOT EXISTS `datax-learn`
+CREATE DATABASE IF NOT EXISTS `datax_learn`
     CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
 -- 创建表
