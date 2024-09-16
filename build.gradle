@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+}
+
+// allprojects 该代码块中的配置将适用于所有项目，包括根项目和所有子项目。可以在其中定义共享的配置和依赖项
+allprojects {
+    // 指定语言
+    apply plugin: 'java'
+    // 指定编辑器
+    apply plugin: 'idea'
+    // java-library 用于支持 api
+    apply plugin: "java-library"
+
+    // 配置 group 和 version
+    group 'top.simba1949'
+    version '1.0-SNAPSHOT'
+
+    // 配置 JDK 版本
+    java {
+        sourceCompatibility(JavaVersion.VERSION_17)
+        targetCompatibility(JavaVersion.VERSION_17)
+    }
+
+    // 配置编译文件编码格式：UTF-8
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.encoding = "UTF-8"
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = "UTF-8"
+    }
+    tasks.withType(Javadoc).configureEach {
+        options.encoding = "UTF-8"
+    }
+}
+
+group = 'vip.openpark'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
